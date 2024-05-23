@@ -1,0 +1,21 @@
+.section-banners {
+  display: grid;
+  grid-template-areas:
+        "a a c"
+        "a a c"
+        "a a b";
+  gap: 10px;
+}
+.banner-figure.a {
+  grid-area: a;
+}
+.banner-figure.b {
+  grid-area: b;
+}
+.banner-figure.c {
+  grid-area: c;
+}
+.banner-figure img {
+  width: 100%;
+  height: auto;
+}

@@ -1,0 +1,32 @@
+.header-section{
+  display: flex;
+}
+
+.header-nav{
+  display: flex;
+  flex-direction: column;
+}
+
+.header-nav-top{
+  display: flex;
+  justify-content: space-between;
+
+  .header-social{
+    display: flex;
+  }
+
+  .header-btns{
+    display: flex;
+  }
+}
+
+.header-nav-bottom{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .header-links{
+    display: flex;
+  }
+}
+
