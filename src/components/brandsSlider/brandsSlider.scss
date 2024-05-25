@@ -3,18 +3,17 @@
   white-space: nowrap;
   position: relative;
   width: 100%;
-  background: #f0f0f0; /* Adjust the background as needed */
   padding: 20px 0;
 }
 
 .brands-track {
   display: flex;
-  animation: slide 50s linear infinite;
+  animation: slide 60s linear infinite;
 }
 
 .brands-track img {
-  height: 60px; /* Adjust the height of the logos */
-  margin: 0 20px; /* Adjust the spacing between logos */
+  height: 40px; /* Adjust the height of the logos */
+  margin: 0 60px; /* Adjust the spacing between logos */
 }
 
 @keyframes slide {

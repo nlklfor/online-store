@@ -1,12 +1,22 @@
-.section-gallery{
+.section-gallery {
   display: flex;
+  background-color: #e5e5e5;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.gallery-list{
+.gallery-list {
   display: flex;
 
+  .galley-item {
+    width: 350px;
+  }
+
+  .swiper-slide {
+    padding: 20px;
+  }
 }
+
+
 
