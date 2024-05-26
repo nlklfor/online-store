@@ -3,9 +3,9 @@ import instagram from '../../assets/instagram.svg'
 import facebook from '../../assets/facebook.svg'
 import cart from '../../assets/cart.svg'
 import person from '../../assets/person.svg'
-import envelope from '../../assets/envelope.svg'
 import favourite from '../../assets/star.svg'
 import logo from '../../assets/logo.png'
+import {Link} from "react-router-dom";
 
 function Header() {
     return (
@@ -18,15 +18,12 @@ function Header() {
                             <li id={'facebook'}><img src={facebook} alt={'facebook'}/></li>
                         </ul>
                         <div className={'header-logo'}>
-                            <a className="logo" href="index.html">
-                                <img src={logo} alt={'Logo'}/>
-                            </a>
+                            <Link to={'/'}><img className={'logo'} src={logo} alt={'Logo'}/></Link>
                         </div>
                         <ul className={"header-btns"}>
                             <li className={'cart-btn'} id={'cart'}><img src={cart} alt={'cart'}/></li>
                             <li className={'acc-btn'} id={'acc'}><img src={person} alt={'account'}/></li>
                             <li className={'fav-btn'} id={'fav'}><img src={favourite} alt={'favourite'}/></li>
-                            <li className={'callback-btn'} id={'callback'}><img src={envelope} alt={'callback'}/></li>
                             <li className={'lang-btn'} id={'lang'}>
                                 <select name="language" id="language">
                                     <option value="eng">Eng</option>
@@ -39,22 +36,22 @@ function Header() {
                     <div className={'header-nav-bottom'}>
                         <ul className="header-links">
                             <li className="header-item">
-                                <a className="item-link" href="index.html">Men</a>
+                                <Link className="item-link" to={'/items'}>Men</Link>
                             </li>
                             <li className="header-item">
-                                <a className="item-link" href="index.html">Women</a>
+                                <Link className="item-link" to={'/items'}>Women</Link>
                             </li>
                             <li className="header-item">
-                                <a className="item-link" href="index.html">Kids</a>
+                                <Link className="item-link" to={'/items'}>Kids</Link>
                             </li>
                             <li className="header-item">
-                                <a className="item-link" href="index.html"><span>SALE</span></a>
+                                <Link className="item-link" to={'/items'}><span>SALE</span></Link>
                             </li>
                             <li className="header-item">
-                                <a className="item-link" href="index.html">Brands</a>
+                                <Link className="item-link" to={'/items'}>Brands</Link>
                             </li>
                             <li className="header-item">
-                                <a className="item-link" href="index.html">Search</a>
+                                <Link className="item-link" to={'/items'}>Search</Link>
                             </li>
                         </ul>
                     </div>

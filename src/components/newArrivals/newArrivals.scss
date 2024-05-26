@@ -8,8 +8,18 @@
 .arrivals-content{
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .arrivals-title{
   text-align: center;
+}
+
+.arrivals-items{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.show-more{
+  width: 150px;
 }

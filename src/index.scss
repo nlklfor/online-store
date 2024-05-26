@@ -4,6 +4,7 @@
   font-family: Kanit, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   text-decoration: none;
   list-style: none;
+  margin: 0;
 }
 
 :root {
@@ -12,8 +13,4 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  margin: 0;
 }

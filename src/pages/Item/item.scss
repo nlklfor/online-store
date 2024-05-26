@@ -1,0 +1,98 @@
+.section-item {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.item-photo {
+  display: flex;
+  flex-direction: column;
+  .swiper{
+    width: 600px;
+  }
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+}
+
+.item-desc{
+  max-width: 400px;
+}
+
+.item-title {
+  font-size: 28px;
+  font-weight: bolder;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.item-sex {
+  color: #7c7b7b;
+  margin-bottom: 5px;
+}
+
+.item-price {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.btn-fav {
+  font-size: 20px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  opacity: 0.4;
+  transition: .1s all;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.btn-fav:hover, .btn-fav:focus, .btn-fav:active {
+  opacity: 1;
+}
+
+.item-size {
+  margin-bottom: 30px;
+}
+
+.item-size button {
+  background-color: transparent;
+  margin: 5px;
+  font-size: 16px;
+}
+
+.item-size button:hover, .item-size button:focus, .item-size button:active {
+  border-color: cadetblue;
+}
+
+.size-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.btn-cart {
+  font-size: 20px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  border: 1px solid;
+  background-color: transparent;
+  transition: .3s all;
+  padding: 5px 15px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+
+.btn-cart img{
+  margin-left: 10px;
+}
+
+.btn-cart:hover, .btn-cart:focus, .btn-cart:active{
+  box-shadow: 0px 0px 24px 3px rgba(0,0,0,0.32);
+}

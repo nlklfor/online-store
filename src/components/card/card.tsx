@@ -1,9 +1,17 @@
 import './card.scss'
 // import {useEffect, useState} from "react";
 // import axios from "axios";
-import {items} from "../../../public/db/items";
 
-function Card() {
+type PropsType = {
+    title: string;
+    img: string[];
+    currency: string;
+    price: number;
+    sex: string;
+    index: number;
+}
+
+function Card(props: PropsType) {
     // const [items, setItems] = useState([]);
     //
     // useEffect(() => {
@@ -14,24 +22,20 @@ function Card() {
     // }, []);
     return (
         <>
-            {items.map((item, index) => {
-                return (
-                    <div key={index} className='card'>
-                        <img src={item.img_url} alt='shoe' width={133}/>
-                        <div className='card-bottom'>
-                            <div className='card-info'>
-                                <p className='card-desc'>
-                                    {item.title}
-                                </p>
-                                <span className={'card-sex'}>{item.sex}</span>
-                                <span className='card-info-price'>
-                                {item.price + ' ' + item.currency}
+            <div key={props.index} className='card'>
+                <img src={props.img[0]} alt='shoe' width={133}/>
+                <div className='card-bottom'>
+                    <div className='card-info'>
+                        <p className='card-desc'>
+                            {props.title}
+                        </p>
+                        <span className={'card-sex'}>{props.sex}</span>
+                        <span className='card-info-price'>
+                                {props.price + ' ' + props.currency}
                         </span>
-                            </div>
-                        </div>
                     </div>
-                )
-            })}
+                </div>
+            </div>
         </>
     )
 }
