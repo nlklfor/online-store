@@ -23,10 +23,9 @@ function Footer() {
                         Subscription
                         <ul>
                             <li>
-                                <p>Subscribe and get 10% off</p>
                                 <div>
                                     <form>
-                                        <input type="text" placeholder="example@gmail.com" />
+                                        <input type="text" placeholder="example@gmail.com"/>
                                         <button type="submit">Subscribe</button>
                                     </form>
                                 </div>
@@ -36,8 +35,8 @@ function Footer() {
                     <li className="footer-social">
                         Social Links
                         <ul>
-                            <li id="instagram"><img alt="instagram" /></li>
-                            <li id="facebook"><img alt="facebook" /></li>
+                            <li id="instagram"><img alt="instagram"/></li>
+                            <li id="facebook"><img alt="facebook"/></li>
                         </ul>
                     </li>
                 </ul>

@@ -42,18 +42,21 @@ function Item() {
                 </div>
                 <div className={'item-info'}>
                     <div className={'item-desc'}>
+                        <p className={'item-brand'}>{item.brand}</p>
                         <p className={'item-title'}>{item.title}</p>
-                        <p className={'item-sex'}>{item.sex}</p>
+                        <p className={'item-sex'}>{item.gender}</p>
                         <p className={'item-price'}>{item.price + " " + item.currency}</p>
                     </div>
-                    <button className={'btn-fav'}>Add to favourite<img src={fav} alt={'favourite'}/></button>
                     <div className={'item-size'}>
                         <p className={'size-title'}>Choose your size</p>
                         {item.size.map((size) => (
                             <button key={size}>{size}</button>
                         ))}
                     </div>
-                    <button className={'btn-cart'}>Add to cart<img src={cart} alt={'favourite'}/></button>
+                    <div className={'item-btns'}>
+                        <button className={'btn-cart'}>Add to cart<img src={cart} alt={'favourite'}/></button>
+                        <button className={'btn-fav'}>Add to favourite<img src={fav} alt={'favourite'}/></button>
+                    </div>
                 </div>
             </section>
         </Root>

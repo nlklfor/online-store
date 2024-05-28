@@ -7,7 +7,7 @@ type PropsType = {
     img: string[];
     currency: string;
     price: number;
-    sex: string;
+    gender: string;
     index: number;
 }
 
@@ -29,7 +29,7 @@ function Card(props: PropsType) {
                         <p className='card-desc'>
                             {props.title}
                         </p>
-                        <span className={'card-sex'}>{props.sex}</span>
+                        <span className={'card-sex'}>{props.gender}</span>
                         <span className='card-info-price'>
                                 {props.price + ' ' + props.currency}
                         </span>

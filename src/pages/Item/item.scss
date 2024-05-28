@@ -25,7 +25,6 @@
 .item-title {
   font-size: 28px;
   font-weight: bolder;
-  margin-top: 20px;
   margin-bottom: 5px;
 }
 
@@ -95,4 +94,9 @@
 
 .btn-cart:hover, .btn-cart:focus, .btn-cart:active{
   box-shadow: 0px 0px 24px 3px rgba(0,0,0,0.32);
+}
+
+.item-btns{
+  display: flex;
+  gap: 20px;
 }

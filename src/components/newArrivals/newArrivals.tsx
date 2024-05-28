@@ -20,7 +20,7 @@ function NewArrivals() {
                             <Link key={index} to={`/items/${item.id}`}><Card index={index} title={item.title}
                                                                              img={item.img_url}
                                                                              price={item.price} currency={item.currency}
-                                                                             sex={item.sex}/></Link>
+                                                                             gender={item.gender}/></Link>
                         ))}
                     </div>
                     <button className={'show-more'}>Show more
