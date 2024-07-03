@@ -1,0 +1,26 @@
+.wishlist {
+  .wishlist-item {
+    display: flex;
+    margin-bottom: 10px;
+
+    img {
+      width: 100px;
+      height: 100px;
+      margin-right: 10px;
+    }
+
+    .item-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      button {
+        background-color: #f00;
+        color: #fff;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import './sidebar.scss';
-import {getUniqueAttributes} from "../../utils/uniqueAttributes.ts";
+import {GetUniqueAttributes} from "../../../utils/uniqueAttributes.ts";
 
 type SidebarProps = {
     selectedBrands: string[];
@@ -22,7 +22,7 @@ function Sidebar({
                  }: SidebarProps) {
     // const uniqueBrands = Array.from(new Set(items.map(item => item.brand)));
     // const uniqueColors = Array.from(new Set(items.map(item => item.color)));
-    const {brands, colors, types} = getUniqueAttributes();
+    const {brands, colors, types} = GetUniqueAttributes();
 
     const handlePriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value;

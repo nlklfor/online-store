@@ -1,25 +1,26 @@
-.section-arrivals{
+.section-arrivals {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.arrivals-content{
+.arrivals-content {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.arrivals-title{
+.arrivals-title {
   text-align: center;
 }
 
-.arrivals-items{
-  display: flex;
-  flex-wrap: wrap;
+.arrivals-items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
-.show-more{
+.show-more {
   width: 150px;
 }

@@ -24,9 +24,11 @@
 }
 
 @mixin button-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: white;
-  font-family: 'Inter', serif;
-  background-color: $black-100;
+  background-color: $black-40;
   padding: 20px 10px;
   border: none;
   border-radius: 15px;
@@ -49,3 +51,4 @@
   font-size: 28px;
   font-weight: 600;
 }
+

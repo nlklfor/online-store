@@ -1,11 +1,12 @@
-/* src/AuthModal.css */
+/* authModal.scss */
+
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,56 +14,109 @@
 }
 
 .modal {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 300px;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 100%;
   position: relative;
 }
 
 .close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
   background: none;
   border: none;
-  font-size: 20px;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
   cursor: pointer;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.8rem;
+  color: #333;
 }
 
 .form-group {
-  margin-bottom: 15px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
-}
-
-.checkbox-group {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #555;
+  }
+
+  input {
+    width: 95%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border 0.3s;
+
+    &:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+  }
+
+  span {
+    color: #e74c3c;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    display: block;
+  }
 }
 
-.forgot-password {
-  font-size: 0.9em;
-  text-decoration: none;
-  color: #007BFF;
+.registration,
+.registration-button {
+  display: inline-block;
+  width: calc(50% - 0.25rem);
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+
+  &:not(:last-child) {
+    margin-right: 0.5rem;
+  }
+}
+
+.registration {
+  background: #f8f9fa;
+  color: #007bff;
+
+  &:hover {
+    background: #007bff;
+    color: #fff;
+  }
 }
 
 .registration-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #007BFF;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  background: #007bff;
+  color: #fff;
+
+  &:hover {
+    background: #0056b3;
+  }
+}
+
+.buttons-log{
+  display: flex;
+}
+
+.error {
+  color: #e74c3c;
+  font-size: 0.875rem;
+  text-align: center;
+  margin-top: 1rem;
 }

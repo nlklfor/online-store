@@ -1,0 +1,35 @@
+@import "../../styles/bundle.scss";
+
+.account-container {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.account-details {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+p {
+  margin: 10px 0;
+}
+
+.signOut {
+  margin-top: 10px;
+  border: none;
+  background-color: $primary-color;
+  color: $white-100;
+  border-radius: 10px;
+  padding: 5px;
+  cursor: pointer;
+}

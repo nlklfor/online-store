@@ -1,4 +1,6 @@
 import './footer.scss';
+import instagram from "../../assets/instagram.svg";
+import telegram from "../../assets/telegram.svg";
 
 function Footer() {
     return (
@@ -35,8 +37,8 @@ function Footer() {
                     <li className="footer-social">
                         Social Links
                         <ul>
-                            <li id="instagram"><img alt="instagram"/></li>
-                            <li id="facebook"><img alt="facebook"/></li>
+                            <li id={'instagram'}><img src={instagram} alt={'instagram'}/></li>
+                            <li id={'telegram'}><img src={telegram} alt={'telegram'}/></li>
                         </ul>
                     </li>
                 </ul>

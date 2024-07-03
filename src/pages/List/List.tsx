@@ -1,12 +1,14 @@
-import {items} from "../../../public/db/items.ts";
 import {Link, useLocation} from "react-router-dom";
 import Card from "../../components/card/card.tsx";
 import Sidebar from "../../components/sidebar/sidebar.tsx";
 import Root from "../../Routes/Root.tsx";
 import './List.scss';
-import {useState} from "react";
+import {useContext, useState} from "react";
+import {ItemStoreContext} from "../../stores/ItemStoreContext.tsx";
 
 function List() {
+    const itemStore = useContext(ItemStoreContext);
+
     const location = useLocation();
     const gender = new URLSearchParams(location.search).get('gender');
 
@@ -37,7 +39,7 @@ function List() {
         setPriceRange([min, max]);
     };
 
-    const filteredItems = items.filter(item => {
+    const filteredItems = itemStore?.items.filter(item => {
 
         const genderMatch = (gender === "Male" || gender === "Female")
             ? (item.gender === gender || item.gender === "Unisex")
@@ -64,7 +66,7 @@ function List() {
                         <h2 className={'list-items-title'}>{gender && `${gender}`}</h2>
                         <div className={'items'}>
                             {filteredItems.map((item, index) => (
-                                <Link key={index} to={`/items/${item.id}`}>
+                                <Link key={index} to={`/items/${item._id}`}>
                                     <Card
                                         index={index}
                                         title={item.title}

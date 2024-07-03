@@ -1,4 +1,4 @@
-.header-section{
+.header-section {
   margin-top: 15px;
 }
 
@@ -28,8 +28,11 @@
 
   .header-social {
     display: flex;
+    align-items: center;
+    justify-content: center;
 
     li {
+      display: flex;
       cursor: pointer;
       margin: 5px;
       transition: .3s all;
@@ -39,8 +42,8 @@
       filter: drop-shadow(0px 2px 4px #C13584);
     }
 
-    #facebook:hover, #facebook:focus, #facebook:active {
-      filter: drop-shadow(0px 2px 4px #3B5998);
+    #telegram:hover, #telegram:focus, #telegram:active {
+      filter: drop-shadow(0px 2px 4px #29B6F6);
     }
   }
 
@@ -48,15 +51,40 @@
     display: flex;
 
     li {
+      display: flex;
       cursor: pointer;
-      margin: 5px 10px;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      margin: 5px;
+      border-radius: 10px;
       transition: .3s all;
     }
 
     li:hover, li:active, li:focus {
-      filter: drop-shadow(0px 2px 10px black);
+      background-color: rgba(176, 176, 176, 0.31);
     }
   }
+}
+
+.acc-btn {
+  display: flex;
+
+  p {
+    margin: 0;
+  }
+}
+
+.cart-amount {
+  position: absolute;
+  background-color: red;
+  color: white;
+  padding: 2px 7px;
+  top: 20px;
+  right: 210px;
+  font-size: 10px;
+  text-align: center;
+  border-radius: 12px;
 }
 
 .header-nav-bottom {
@@ -76,12 +104,14 @@
       a {
         color: black;
         transition: .3s all;
-        span{
+
+        span {
           color: red;
           font-weight: bolder;
         }
       }
-      a:hover, a:focus, a:active{
+
+      a:hover, a:focus, a:active {
         opacity: 0.6;
       }
     }

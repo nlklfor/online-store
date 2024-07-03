@@ -23,7 +23,7 @@ function Card(props: PropsType) {
     return (
         <>
             <div key={props.index} className='card'>
-                <img src={props.img[0]} alt='shoe' width={133}/>
+                <img src={props.img[0]} alt='item' width={133}/>
                 <div className='card-bottom'>
                     <div className='card-info'>
                         <p className='card-desc'>

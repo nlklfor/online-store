@@ -1,20 +1,28 @@
-import './header.scss'
-import instagram from '../../assets/instagram.svg'
-import facebook from '../../assets/facebook.svg'
-import cart from '../../assets/cart.svg'
-import person from '../../assets/person.svg'
-import favourite from '../../assets/star.svg'
-import logo from '../../assets/logo.png'
-import {Link} from "react-router-dom";
-import {useState} from "react";
-import AuthModal from "../authModal/authModal.tsx";
+import './header.scss';
+import instagram from '../../assets/instagram.svg';
+import telegram from '../../assets/telegram.svg';
+import cartImg from '../../assets/cart.svg';
+import person from '../../assets/person.svg';
+import favourite from '../../assets/favourite.svg';
+import logo from '../../assets/logo.png';
+import {Link} from 'react-router-dom';
+import {useState} from 'react';
+import {useAuthStore} from '../../stores/AuthStoreContext';
+import AuthModal from '../authModal/authModal.tsx';
+import {useCartStore} from "../../stores/CartStore.ts";
 
 function Header() {
-    const [isModalOpen, setIsModalOpen] = useState(false)
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const authStore = useAuthStore();
+    const cartStore = useCartStore();
+    const {fullName} = authStore.user ? authStore.user : '';
+    const cart = cartStore.cartItems;
 
     const showModal = () => {
-        setIsModalOpen(!isModalOpen)
-    }
+        setIsModalOpen(!isModalOpen);
+    };
+
+
     return (
         <>
             <header className="header-section">
@@ -22,25 +30,59 @@ function Header() {
                     <div className={'header-nav-top'}>
                         <ul className={"header-social"}>
                             <li id={'instagram'}><img src={instagram} alt={'instagram'}/></li>
-                            <li id={'facebook'}><img src={facebook} alt={'facebook'}/></li>
+                            <li id={'telegram'}><img src={telegram} alt={'telegram'}/></li>
                         </ul>
                         <div className={'header-logo'}>
                             <Link to={'/'}><img className={'logo'} src={logo} alt={'Logo'}/></Link>
                         </div>
                         <ul className={"header-btns"}>
-                            <li className={'cart-btn'} id={'cart'}><img src={cart} alt={'cart'}/></li>
-                            <li className={'acc-btn'} id={'acc'}><img src={person} onClick={showModal} alt={'account'}/></li>
-                            <li className={'fav-btn'} id={'fav'}><img src={favourite} alt={'favourite'}/></li>
+                            <li className={'cart-btn'} id={'cart'}>
+                                {authStore.isAuth ? (
+                                    <Link to="/cart">
+                                        <img width={25} height={25} src={cartImg} alt={'cart'}/>
+                                        {cart.length > 0 && (<div className={'cart-amount'}>{cart.length}</div>)}
+                                    </Link>
+                                ) : (
+                                    <img width={25} height={25} src={cartImg} alt={'cart'}
+                                         style={{cursor: 'not-allowed'}}/>
+                                )}
+                            </li>
+
+                            {authStore.isAuth ? (
+                                <Link to={'/account'}>
+                                    <li className={'acc-btn'} id={'acc'}>
+                                        <img width={25} height={25} src={person} alt={'account'}/>
+                                        <p className={'user-name'}>{fullName}</p>
+                                    </li>
+                                </Link>
+                            ) : (
+                                <li className={'acc-btn'} id={'acc'} onClick={showModal}>
+                                    <img width={25} height={25} src={person} alt={'account'}/>
+                                </li>
+                            )}
+                            <li className={'fav-btn'} id={'fav'}>
+                                {authStore.isAuth ? (
+                                    <Link to="/wishlist">
+                                        <img width={25} height={25} src={favourite} alt={'favourite'}/>
+                                    </Link>
+                                ) : (
+                                    <img width={25} height={25} src={favourite} alt={'favourite'}
+                                         style={{cursor: 'not-allowed'}}/>
+                                )}
+                            </li>
                         </ul>
                     </div>
                     <div className={'header-nav-bottom'}>
                         <ul className="header-links">
-                            <li className="header-item"><Link className="item-link"
-                                                              to={'/items?gender=Male'}>Male</Link></li>
-                            <li className="header-item"><Link className="item-link"
-                                                              to={'/items?gender=Female'}>Female</Link></li>
-                            <li className="header-item"><Link className="item-link"
-                                                              to={'/items?gender=Kids'}>Kids</Link></li>
+                            <li className="header-item">
+                                <Link className="item-link" to={'/items?gender=Male'}>Male</Link>
+                            </li>
+                            <li className="header-item">
+                                <Link className="item-link" to={'/items?gender=Female'}>Female</Link>
+                            </li>
+                            <li className="header-item">
+                                <Link className="item-link" to={'/items?gender=Kids'}>Kids</Link>
+                            </li>
                             <li className="header-item">
                                 <Link className="item-link" to={'/items'}><span>SALE</span></Link>
                             </li>
@@ -53,7 +95,7 @@ function Header() {
                 </nav>
             </header>
         </>
-    )
+    );
 }
 
 export default Header;
