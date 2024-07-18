@@ -87,6 +87,18 @@
   border-radius: 12px;
 }
 
+.wishlist-amount {
+  position: absolute;
+  background-color: red;
+  color: white;
+  padding: 2px 7px;
+  top: 20px;
+  right: 40px;
+  font-size: 10px;
+  text-align: center;
+  border-radius: 12px;
+}
+
 .header-nav-bottom {
   display: flex;
   align-items: center;

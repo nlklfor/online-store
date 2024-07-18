@@ -15,7 +15,7 @@ const Wishlist = observer(() => {
             <div className="wishlist">
                 <h2>Your Wishlist</h2>
                 {cartStore.wishlistItems.length > 0 ? (
-                    <div>
+                    <div className="wishlist-items">
                         {cartStore.wishlistItems.map(item => (
                             <div key={item._id} className="wishlist-item">
                                 <img src={item.img_url[0]} alt={item.title}/>
@@ -28,7 +28,7 @@ const Wishlist = observer(() => {
                         ))}
                     </div>
                 ) : (
-                    <p>Your wishlist is empty.</p>
+                    <p className="empty-message">Your wishlist is empty.</p>
                 )}
             </div>
         </Root>

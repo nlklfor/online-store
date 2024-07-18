@@ -10,7 +10,7 @@ function Gallery() {
     return (
         <>
             <section className={'section-gallery'}>
-                <h3 className={'gallery-title'}>Our photos</h3>
+                <h3 className={'gallery-title'}>Our orders</h3>
                 <ul className={'gallery-list'}>
                     <Swiper
                         direction={'horizontal'}

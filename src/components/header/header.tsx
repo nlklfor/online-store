@@ -18,6 +18,7 @@ const Header = observer(() => {
     const cartStore = useCartStore();
     const fullName = authStore.user?.fullName || '';
     const cart = cartStore.cartItems;
+    const whishList = cartStore.wishlistItems;
 
     const showModal = useCallback(() => {
         setIsModalOpen(prevState => !prevState); // FIND OUT HOW IT WORKS!!!!
@@ -64,6 +65,7 @@ const Header = observer(() => {
                             <li className={'fav-btn'} id={'fav'}>
                                 {authStore.isAuth ? (
                                     <Link to="/wishlist">
+                                        {whishList.length > 0 && <div className={'wishlist-amount'}>{whishList.length}</div>}
                                         <img width={25} height={25} src={favourite} alt={'favourite'}/>
                                     </Link>
                                 ) : (

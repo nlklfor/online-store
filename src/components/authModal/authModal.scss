@@ -67,7 +67,7 @@ h2 {
     }
   }
 
-  span {
+  .error-text {
     color: #e74c3c;
     font-size: 0.875rem;
     margin-top: 0.5rem;
@@ -108,6 +108,11 @@ h2 {
   &:hover {
     background: #0056b3;
   }
+}
+
+.registration-link{
+  color: #007bff;
+  cursor: pointer;
 }
 
 .buttons-log{

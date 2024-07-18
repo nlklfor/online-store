@@ -25,14 +25,16 @@ const AuthModal = observer(({isOpen, showModal}: AuthModalProps) => {
         }
     });
 
-    const [showFullNameField, setShowFullNameField] = useState(false);
+    // const [modalLogin , setModalLogin] = useState(false);
+    const [modalReg, setModalReg] = useState(false)
+    // const [showFullNameField, setShowFullNameField] = useState(false);
 
     const handleRegistrationClick = () => {
-        setShowFullNameField(!showFullNameField);
+        setModalReg(!modalReg);
     };
 
     const onSubmit: SubmitHandler<FormTypes> = (values) => {
-        if (showFullNameField) {
+        if (modalReg) {
             authStore.register(values.email, values.password, values.fullName!);
         } else {
             authStore.login(values.email, values.password);
@@ -56,7 +58,7 @@ const AuthModal = observer(({isOpen, showModal}: AuthModalProps) => {
                 <div className="modal-overlay">
                     <div className="modal">
                         <button onClick={showModal} className="close-button">×</button>
-                        <h2>{showFullNameField ? "Registration" : "Authorization"}</h2>
+                        <h2>{modalReg ? "Registration" : "Authorization"}</h2>
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="form-group">
                                 <label htmlFor="email">Email</label>
@@ -76,7 +78,7 @@ const AuthModal = observer(({isOpen, showModal}: AuthModalProps) => {
                                 />
                                 {errors.password && <span>{errors.password.message}</span>}
                             </div>
-                            {showFullNameField && (
+                            {modalReg && (
                                 <div className="form-group">
                                     <label htmlFor="fullName">Full Name</label>
                                     <input
@@ -84,15 +86,21 @@ const AuthModal = observer(({isOpen, showModal}: AuthModalProps) => {
                                         id="fullName"
                                         {...register('fullName', {required: "Enter your Name"})}
                                     />
-                                    {errors.fullName && <span>{errors.fullName.message}</span>}
+                                    {errors.fullName && <span className={'error-text'}>{errors.fullName.message}</span>}
                                 </div>
                             )}
+                            {!modalReg ? (<div className={'form-group'}>
+                                <p>Don't have an account yet? <span onClick={handleRegistrationClick}
+                                                                    className={'registration-link'}>Registration</span>
+                                </p>
+                            </div>) : (<div className={'form-group'}>
+                                <p>Already have an account? <span onClick={handleRegistrationClick}
+                                                                    className={'registration-link'}>Login</span>
+                                </p>
+                            </div>)}
                             <div className={'buttons-log'}>
-                                <button className={'registration'}
-                                        onClick={handleRegistrationClick}>{!showFullNameField ? "Create an account" : "Login"}
-                                </button>
                                 <button type="submit"
-                                        className="registration-button">{showFullNameField ? "Create an account" : "Login"}
+                                        className="registration-button">{modalReg ? "Create an account" : "Login"}
                                 </button>
                             </div>
                             {authStore.error && <p className="error">{authStore.error}</p>}
