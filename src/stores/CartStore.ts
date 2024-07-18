@@ -73,7 +73,7 @@ class CartStore {
     async checkout() {
         this.isLoading = true;
         try {
-            await axios.post('/checkout', this.cartItems);
+            await axios.post('/history', this.cartItems);
             this.orderHistory.push(...this.cartItems);
             this.cartItems = [];
             console.log(this.cartItems)

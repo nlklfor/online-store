@@ -18,7 +18,7 @@ const NewArrivals = observer(() => {
         <>
             {itemStore?.isLoading ? <h1>LOADING...</h1> : <article className={'section-arrivals'}>
                 <div className={'arrivals-content'}>
-                    <h3 className={'arrivals-title'}>New Arrivals</h3>
+                    <h3 className={'arrivals-title'}>Our items</h3>
                     <div className={'arrivals-items'}>
                         {itemStore?.items.map((item, index) => (
                             <Link key={index} to={`/items/${item._id}`}><Card index={index} title={item.title}

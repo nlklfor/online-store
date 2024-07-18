@@ -4,23 +4,24 @@ import telegram from '../../assets/telegram.svg';
 import cartImg from '../../assets/cart.svg';
 import person from '../../assets/person.svg';
 import favourite from '../../assets/favourite.svg';
-import logo from '../../assets/logo.png';
+// import logo from '../../assets/logo.png';
 import {Link} from 'react-router-dom';
-import {useState} from 'react';
+import {useCallback, useState} from 'react';
 import {useAuthStore} from '../../stores/AuthStoreContext';
 import AuthModal from '../authModal/authModal.tsx';
 import {useCartStore} from "../../stores/CartStore.ts";
+import {observer} from "mobx-react-lite";
 
-function Header() {
+const Header = observer(() => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const authStore = useAuthStore();
     const cartStore = useCartStore();
-    const {fullName} = authStore.user ? authStore.user : '';
+    const fullName = authStore.user?.fullName || '';
     const cart = cartStore.cartItems;
 
-    const showModal = () => {
-        setIsModalOpen(!isModalOpen);
-    };
+    const showModal = useCallback(() => {
+        setIsModalOpen(prevState => !prevState); // FIND OUT HOW IT WORKS!!!!
+    }, []);
 
 
     return (
@@ -33,7 +34,7 @@ function Header() {
                             <li id={'telegram'}><img src={telegram} alt={'telegram'}/></li>
                         </ul>
                         <div className={'header-logo'}>
-                            <Link to={'/'}><img className={'logo'} src={logo} alt={'Logo'}/></Link>
+                            <Link to={'/'}>MyStore</Link>
                         </div>
                         <ul className={"header-btns"}>
                             <li className={'cart-btn'} id={'cart'}>
@@ -96,6 +97,6 @@ function Header() {
             </header>
         </>
     );
-}
+});
 
 export default Header;

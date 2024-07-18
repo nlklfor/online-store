@@ -37,6 +37,7 @@ const AuthModal = observer(({isOpen, showModal}: AuthModalProps) => {
         } else {
             authStore.login(values.email, values.password);
         }
+        console.log(values)
     }
 
     if (authStore.isAuth) {

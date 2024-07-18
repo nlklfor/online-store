@@ -23,7 +23,7 @@ export const registration = async (req, res) => {
         const user = await doc.save()
         const token = jwt.sign({
             _id: user._id
-        }, '#1234', {expiresIn: "30d"})
+        }, '#1234', {expiresIn: "90d"})
 
         res.json({
             user,

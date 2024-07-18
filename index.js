@@ -28,23 +28,23 @@ app.get('/items', ItemController.getAllItems);
 app.get('/items/:id', ItemController.getOneItem);
 
 /// CART REQUESTS ///
-app.post('/cart', (req, res) => {
+app.post('/user/cart', (req, res) => {
     const {item} = req.body;
     res.status(201).send(item);
 });
 
-app.delete('/cart/:id', (req, res) => {
+app.delete('/user/cart/:id', (req, res) => {
     const {id} = req.params;
     res.status(200).send({id});
 });
 
 /// WISHLIST REQUESTS ///
-app.post('/wishlist', (req, res) => {
+app.post('/user/wishlist', (req, res) => {
     const {item} = req.body;
     res.status(201).send(item);
 });
 
-app.delete('/wishlist/:id', (req, res) => {
+app.delete('/user/wishlist/:id', (req, res) => {
     const {id} = req.params;
     res.status(200).send({id});
 });

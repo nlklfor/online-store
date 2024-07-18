@@ -2,18 +2,21 @@ import {observer} from "mobx-react-lite";
 import {useCartStore} from "../../stores/CartStore";
 import './Cart.scss';
 import Root from "../../Routes/Root.tsx";
-import {Link} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const Cart = observer(() => {
     const cartStore = useCartStore();
+    const navigate = useNavigate()
 
     const handleRemoveFromCart = (itemId: string) => {
         cartStore.removeFromCart(itemId);
     };
 
-    // const handleCheckout = () => {
-    //     cartStore.checkout();
-    // };
+    const handleCheckout = () => {
+        cartStore.checkout();
+        navigate('/');
+        alert(`${cartStore.cartItems.map(item => {item.title})} was successfully added to your history orders`)
+    };
 
     return (
         <Root>
@@ -32,9 +35,9 @@ const Cart = observer(() => {
                                 </div>
                             </div>
                         ))}
-                        <Link to={'/checkout'}>
-                            <button>Checkout</button>
-                        </Link>
+                        {/*<Link to={'/'}>*/}
+                        <button onClick={handleCheckout}>Checkout</button>
+                        {/*</Link>*/}
 
                     </div>
                 ) : (

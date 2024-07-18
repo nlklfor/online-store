@@ -10,7 +10,6 @@ export const GetUniqueAttributes = () => {
     const colors = Array.from(new Set(itemStore?.items.map(item => item.color)));
     const types = Array.from(new Set(itemStore?.items.map(item => item.type)));
 
-    // Define price ranges (example ranges, adjust as needed)
     const priceRanges = [
         {label: "Under 2000 UAH", range: [0, 2000]},
         {label: "2000 UAH - 4000 UAH", range: [2000, 4000]},
