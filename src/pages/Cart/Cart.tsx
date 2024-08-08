@@ -15,7 +15,6 @@ const Cart = observer(() => {
     const handleCheckout = () => {
         cartStore.checkout();
         navigate('/');
-        alert(`${cartStore.cartItems.map(item => {item.title})} was successfully added to your history orders`)
     };
 
     return (
@@ -30,7 +29,8 @@ const Cart = observer(() => {
                                 <div className="item-details">
                                     <p>{item.title}</p>
                                     <p>{item.price} {item.currency}</p>
-                                    <p>{item.size}EU SIZE</p>
+                                    <p>{item.size} SIZE</p>
+                                    <p>{item.amount} {item.amount > 1 ? 'quantities' : 'quantity'}</p>
                                     <button onClick={() => handleRemoveFromCart(item._id)}>Remove</button>
                                 </div>
                             </div>

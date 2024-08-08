@@ -14,10 +14,13 @@ import {itemStore} from "../../stores/ItemsStore";
 import {useCartStore} from "../../stores/CartStore";
 import {Item as ItemType} from "../../stores/ItemsStore.ts";
 import {useAuthStore} from "../../stores/AuthStoreContext.tsx";
+import Toast from "../../components/toast/toast.tsx";
 
 const Item = observer(() => {
     const {itemId} = useParams();
     const [selectedSize, setSelectedSize] = useState<number | null>(null); // Ensure size is a number
+    const [quantity, setQuantity] = useState(1)
+    const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' | 'info'; } | null>(null);
     const cartStore = useCartStore();
     const authStore = useAuthStore();
 
@@ -43,11 +46,20 @@ const Item = observer(() => {
 
     const handleAddToCart = async () => {
         if (selectedSize !== null) { // Checking if a size is selected
-            await cartStore.addToCart({...item, size: [selectedSize]});
+            await cartStore.addToCart({...item, size: [selectedSize], amount: quantity});
         } else {
-            alert("Please select a size.");
+            showToast('Please select your size', "error");
         }
 
+    };
+
+    const onChangeQuantity = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const value = parseInt(event.target.value);
+        setQuantity(value)
+    }
+
+    const showToast = (message: string, type: 'success' | 'error' | 'info') => {
+        setToast({message, type});
     };
 
     const handleAddToWishlist = async () => {
@@ -56,6 +68,7 @@ const Item = observer(() => {
 
     return (
         <>
+            {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)}/>}
             {!itemStore.isLoading ? (
                 <Root>
                     <section className={'section-item'}>
@@ -82,6 +95,10 @@ const Item = observer(() => {
                                 {item.size.map((size) => (
                                     <button key={size} onClick={() => setSelectedSize(size)}>{size}</button>
                                 ))}
+                            </div>
+                            <div className={'item-amount'}>
+                                <p className={'amount-title'}>Amount of products</p>
+                                <input type={"number"} onChange={onChangeQuantity} value={quantity} id="quantity" name="quantity" min="1" max="10"/>
                             </div>
                             <div className={'item-btns'}>
                                 {authStore.isAuth ? (

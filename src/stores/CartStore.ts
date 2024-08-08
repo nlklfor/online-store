@@ -73,10 +73,11 @@ class CartStore {
     async checkout() {
         this.isLoading = true;
         try {
-            await axios.post('/history', this.cartItems);
+            // await axios.post('/history', this.cartItems);
+            console.log(this.cartItems);
             this.orderHistory.push(...this.cartItems);
+            console.log(this.orderHistory)
             this.cartItems = [];
-            console.log(this.cartItems)
         } catch (error) {
             console.error('Failed to checkout:', error);
         } finally {

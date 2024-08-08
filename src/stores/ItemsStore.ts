@@ -12,6 +12,7 @@ export interface Item {
     type: string;
     color: string;
     style: string;
+    amount: number;
     desc: string;
     size: number[];
 }
