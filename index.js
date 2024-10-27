@@ -5,6 +5,7 @@ import checkAuth from "./utils/checkAuth.js";
 import {ItemController, UserController} from './controllers/index.js';
 import cors from "cors";
 
+
 mongoose.connect('mongodb+srv://nikifor:njs0vnpnUD5TzE2y@cluster0.c3vkhh7.mongodb.net/store')
     .then(() => console.log("DB is connected successfully"))
     .catch((err) => console.log("DB error", err));
@@ -61,3 +62,6 @@ app.listen(3333, (err) => {
     }
     console.log("Server is Working Fine");
 });
+
+
+

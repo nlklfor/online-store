@@ -2,19 +2,13 @@ import {observer} from "mobx-react-lite";
 import {useCartStore} from "../../stores/CartStore";
 import './Cart.scss';
 import Root from "../../Routes/Root.tsx";
-import {useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const Cart = observer(() => {
     const cartStore = useCartStore();
-    const navigate = useNavigate()
 
     const handleRemoveFromCart = (itemId: string) => {
         cartStore.removeFromCart(itemId);
-    };
-
-    const handleCheckout = () => {
-        cartStore.checkout();
-        navigate('/');
     };
 
     return (
@@ -35,10 +29,9 @@ const Cart = observer(() => {
                                 </div>
                             </div>
                         ))}
-                        {/*<Link to={'/'}>*/}
-                        <button onClick={handleCheckout}>Checkout</button>
-                        {/*</Link>*/}
-
+                        <Link to={'/Checkout'}>
+                            <button>Checkout</button>
+                        </Link>
                     </div>
                 ) : (
                     <p>Your cart is empty.</p>

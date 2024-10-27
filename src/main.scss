@@ -1,16 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
-  font-family: Kanit, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "IBM Plex Sans", Kanit, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   text-decoration: none;
   list-style: none;
   margin: 0;
 }
 
 :root {
-  font-family: Kanit, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "IBM Plex Sans", Kanit, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* width */
+/* Настройка ширины скроллбара */
+::-webkit-scrollbar {
+  width: 7px; /* Ширина скроллбара */
+}
+
+/* Track (фоновая область скроллбара) */
+::-webkit-scrollbar-track {
+  background: transparent; /* Фон без цвета */
+}
+
+/* Handle (движущаяся часть скроллбара) */
+::-webkit-scrollbar-thumb {
+  background: #a5a5a5; /* Начальный цвет скроллбара */
+  transition: all 0.3s ease; /* Плавный переход цвета */
+}
+
+/* Handle (движущаяся часть) при наведении */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Цвет при наведении */
 }

@@ -45,7 +45,7 @@ const Item = observer(() => {
     }
 
     const handleAddToCart = async () => {
-        if (selectedSize !== null) { // Checking if a size is selected
+        if (selectedSize !== null) {
             await cartStore.addToCart({...item, size: [selectedSize], amount: quantity});
         } else {
             showToast('Please select your size', "error");
@@ -93,13 +93,23 @@ const Item = observer(() => {
                             <div className={'item-size'}>
                                 <p className={'size-title'}>Choose your size</p>
                                 {item.size.map((size) => (
-                                    <button key={size} onClick={() => setSelectedSize(size)}>{size}</button>
+                                    <button className={`${(selectedSize === size) && 'selected'}`} key={size}
+                                            onClick={() => setSelectedSize(size)}>{size}</button>
                                 ))}
                             </div>
-                            <div className={'item-amount'}>
-                                <p className={'amount-title'}>Amount of products</p>
-                                <input type={"number"} onChange={onChangeQuantity} value={quantity} id="quantity" name="quantity" min="1" max="10"/>
+                            <div className="item-amount">
+                                <p className="amount-title">Quantity of products</p>
+                                <input
+                                    type="number"
+                                    onChange={onChangeQuantity}
+                                    value={quantity}
+                                    id="quantity"
+                                    name="quantity"
+                                    min="1"
+                                    max="10"
+                                />
                             </div>
+
                             <div className={'item-btns'}>
                                 {authStore.isAuth ? (
                                     <button className={'btn-cart'} onClick={handleAddToCart}>Add to cart<img src={cart}

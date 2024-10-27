@@ -1,5 +1,4 @@
 import Header from "../components/header/header";
-import BrandsSlider from "../components/brandsSlider/brandsSlider";
 import Footer from "../components/footer/footer";
 import React, {ReactNode} from "react";
 
@@ -12,7 +11,6 @@ const Root: React.FC<IRoot> = ({children}) => {
         <>
             <Header/>
             {children}
-            <BrandsSlider/>
             <Footer/>
         </>
     )

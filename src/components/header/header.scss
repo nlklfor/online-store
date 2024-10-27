@@ -1,5 +1,6 @@
 .header-section {
-  margin-top: 15px;
+  position: relative;
+  overflow: hidden;
 }
 
 
@@ -9,17 +10,6 @@
   flex-grow: 1;
 }
 
-.header-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  a {
-    color: #3B5998;
-    font-size: 24px;
-    font-weight: bolder;
-  }
-}
 
 .header-nav-top {
   display: flex;
@@ -38,11 +28,15 @@
       transition: .3s all;
     }
 
-    #instagram:hover, #instagram:focus, #instagram:active {
+    #instagram:hover,
+    #instagram:focus,
+    #instagram:active {
       filter: drop-shadow(0px 2px 4px #C13584);
     }
 
-    #telegram:hover, #telegram:focus, #telegram:active {
+    #telegram:hover,
+    #telegram:focus,
+    #telegram:active {
       filter: drop-shadow(0px 2px 4px #29B6F6);
     }
   }
@@ -61,7 +55,9 @@
       transition: .3s all;
     }
 
-    li:hover, li:active, li:focus {
+    li:hover,
+    li:active,
+    li:focus {
       background-color: rgba(176, 176, 176, 0.31);
     }
   }
@@ -123,10 +119,11 @@
         }
       }
 
-      a:hover, a:focus, a:active {
+      a:hover,
+      a:focus,
+      a:active {
         opacity: 0.6;
       }
     }
   }
 }
-

@@ -14,6 +14,7 @@ import {AuthStoreProvider} from "./stores/AuthStoreContext.tsx";
 import Account from "./pages/Account/Account.tsx";
 import Cart from "./pages/Cart/Cart.tsx";
 import Wishlist from "./pages/Wishlist/Wishlist.tsx";
+import Checkout from "./pages/Checkout/Checkout.tsx";
 
 const router = createBrowserRouter([
     {
@@ -41,10 +42,10 @@ const router = createBrowserRouter([
         path: '/wishlist',
         element: <Wishlist/>
     },
-    // {
-    //     path: '/checkout',
-    //     element: <Checkout/>
-    // }
+    {
+        path: '/checkout',
+        element: <Checkout/>
+    }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
